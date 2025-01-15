@@ -1,0 +1,37 @@
+main, footer, header, .allScreen, .navbar {
+    background-color: #002D62;
+    font-family: cursive;
+    color: white;
+}
+
+.headerTitle{
+    color: white;
+    font-size: 40px;
+    font-family: "Eagle Lake", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.cardPlanes{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    flex-direction: row;
+
+}
+
+.allCardsPlanes{
+    margin-top: 10px;
+    background-color: #002D62;
+}
+
+.infoPlane{
+    background-color: #f6f6f4;
+}

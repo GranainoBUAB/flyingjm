@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PlaneController;
 
@@ -7,7 +8,7 @@ use App\Http\Controllers\PlaneController;
     return view('welcome');
 }); */
 
-//Auth::routes();
+Auth::routes();
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/planes', [PlaneController::class, 'index'])->name('planeHome');
