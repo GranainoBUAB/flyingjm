@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Models\Plane;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class PlaneController extends Controller
 {
@@ -80,7 +81,23 @@ class PlaneController extends Controller
      */
     public function destroy(string $id)
     {
+
+        $user = Auth::user();
         $plane = Plane::find($id);
-        $plane->delete();
+
+        if($user->isAdmin){
+            $plane->delete();
+            return response()->json(['error' => 'the plane has deleted'], 200);
+
+        }
+
+        if(!$user->isAdmin)
+        {
+            return response()->json(['error' => 'Unauthorized to delete a Plane, you are not admin'], 401);
+        }
+
+
+
+
     }
 }

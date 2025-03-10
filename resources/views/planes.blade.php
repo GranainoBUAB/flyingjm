@@ -17,6 +17,17 @@
                             <p class="card-text">Total Seats : {{ $plane->seats }}</p>
                         </div>
                     </div>
+                    <form action="{{ route('planedelete', ['id' => $plane->id]) }}" method="post">
+                        @method('delete')
+                        @csrf
+                        @if(Auth::check() && auth::user()->isAdmin )
+                            <button type="submit"
+                                class="bt-adm m-1 d-flex justify-content-center align-items-center"
+                                onclick="return confirm('¿Estas Seguro de querer eliminar este Avion? {{ $plane->registation }} - ID {{ $plane->id }} ')">
+                                🚮
+                            </button>
+                        @endif
+                    </form>
                 </div>
             </div>
 

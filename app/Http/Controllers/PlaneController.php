@@ -59,8 +59,10 @@ class PlaneController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Plane $plane)
+    public function destroy($id)
     {
         //
+        $plane = Plane::find($id);
+        $plane->delete();
     }
 }
