@@ -17,4 +17,18 @@ class Plane extends Model
         'seats'
 
     ];
+
+    static function totalSeats(){
+        $allPlanes = Plane::all();
+        $totalSeats = 0;
+
+        foreach($allPlanes as $plane){
+            $totalSeats += $plane->seats;
+        }
+
+        return $totalSeats;
+    }
+    
 }
+
+
